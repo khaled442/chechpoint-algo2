@@ -1,0 +1,42 @@
+ALGORITHM Table_sum
+VAR
+    arr1:= Array_of_INTEGER[100];
+    arr2:= Array_of_INTEGER[100];
+    i,j,n,m:INTEGER;
+    sum1 :INTEGER :=0;
+    sum2 :INTEGER :=0;
+    distinct:BOOLEAN :=true;
+BEGIN
+    REPEAT
+        Write(n)
+    UNTIL (0<n<100)
+    REPEAT
+        Write(m)
+    UNTIL (0<m<100)
+FOR i FROM 0 TO n-1 STEP 1  DO
+distinct = true;
+    FOR j FROM 0 TO m-1 STEP 1  DO
+        IF (arr1[i]=arr2[j]) THEN
+            distinct:=false;
+        END_IF
+    END_FOR
+    IF (distinct:=true) THEN
+        sum1:=sum1+arr1[i]; 
+    ELSE (sum2:= sum2 + arr1[i];) 
+    END_IF
+END_FOR
+
+FOR i FROM 0 TO m-1 STEP 1  DO
+distinct = true;
+    FOR j FROM 0 TO n-1 STEP 1  DO
+        IF (arr2[i]=arr1[j]) THEN
+            distinct:=false;
+
+        END_IF
+    END_FOR
+    IF (distinct:=true) THEN
+        sum1:=sum1+arr2[i]; 
+    END_IF
+END_FOR
+
+END
